@@ -1,6 +1,6 @@
 
-<% user = ENV.key?("POSTGRESQL_ADMIN_PASSWORD") ? "root" : ENV["POSTGRESQL_USER"] %>
-<% password = ENV.key?("POSTGRESQL_ADMIN_PASSWORD") ? ENV["POSTGRESQL_ADMIN_PASSWORD"] : ENV["POSTGRESQL_PASSWORD"] %>
+# <% user = ENV.key?("POSTGRESQL_ADMIN_PASSWORD") ? "root" : ENV["POSTGRESQL_USER"] %>
+# <% password = ENV.key?("POSTGRESQL_ADMIN_PASSWORD") ? ENV["POSTGRESQL_ADMIN_PASSWORD"] : ENV["POSTGRESQL_PASSWORD"] %>
 # <% db_service = ENV.fetch("DATABASE_SERVICE_NAME","").upcase %>
 
 default: &default
@@ -9,8 +9,8 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV["POSTGRESQL_MAX_CONNECTIONS"] || 5 %>
-  username: <%= user %>
-  password: <%= password %>
+  username: <%= ENV["POSTGRESQL_USER"] %>
+  password: <%= ENV["POSTGRESQL_PASSWORD"] %>
   host: <%= ENV["POSTGRESQL_SERVICE_HOST"] %>
   port: <%= ENV["POSTGRESQL_SERVICE_PORT"] %>
   database: <%= ENV["POSTGRESQL_DATABASE"] %>
