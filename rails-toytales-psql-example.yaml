@@ -146,13 +146,7 @@ objects:
     selector:
       name: ${NAME}
     strategy:
-      recreateParams:
-        pre:
-          execNewPod:
-            command:
-            - ./migrate-database.sh
-            containerName: ${NAME}
-          failurePolicy: Abort
+      recreateParams: {}
       type: Recreate
     template:
       metadata:
