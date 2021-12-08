@@ -112,8 +112,6 @@ objects:
       to:
         kind: ImageStreamTag
         name: ${NAME}:latest
-    postCommit:
-      script: bundle exec rake test
     source:
       contextDir: ${CONTEXT_DIR}
       git:
