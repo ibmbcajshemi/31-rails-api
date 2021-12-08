@@ -6,7 +6,7 @@ let toyCollectionDiv = document.getElementById('toy-collection')
 let toyForm = document.querySelector(".add-toy-form")
 
 
-fetch("http://localhost:3000/toys")
+fetch("http://rails-postgresql-example-rails-toytales.itzroks-663001ouoh-ob8jpd-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud//toys")
 .then(res => res.json())
 .then((allToys) => {
   allToys.forEach(render)
@@ -52,7 +52,7 @@ function render(toy){
 
 function handleLike(toy, likeSpan){
   let newLike = toy.likes + 1
-  fetch(`http://localhost:3000/toys/${toy.id}`, {
+  fetch(`http://rails-postgresql-example-rails-toytales.itzroks-663001ouoh-ob8jpd-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud//toys/${toy.id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "Application/json",
@@ -74,7 +74,7 @@ function handleLike(toy, likeSpan){
 
 
 function handleDelete(toy, div){
-  fetch(`http://localhost:3000/toys/${toy.id}`, {
+  fetch(`http://rails-postgresql-example-rails-toytales.itzroks-663001ouoh-ob8jpd-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud//toys/${toy.id}`, {
     method: "DELETE"
   })
   .then(r => r.json())
@@ -107,7 +107,7 @@ toyForm.addEventListener("submit", (event) => {
   let name = form.name.value
   let image = form.image.value
 
-  fetch(`http://localhost:3000/toys`, {
+  fetch(`http://rails-postgresql-example-rails-toytales.itzroks-663001ouoh-ob8jpd-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud//toys`, {
     method: 'POST',
     body: JSON.stringify({
       name: name,
