@@ -194,21 +194,9 @@ objects:
           - name: RAILS_ENV
             value: ${RAILS_ENV}
           image: ' '
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 8080
-            initialDelaySeconds: 10
-            timeoutSeconds: 3
           name: ${NAME}
           ports:
           - containerPort: 8080
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8080
-            initialDelaySeconds: 5
-            timeoutSeconds: 3
           resources:
             limits:
               memory: ${MEMORY_LIMIT}
